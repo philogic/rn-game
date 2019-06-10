@@ -1,19 +1,22 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { View } from 'react-native';
+import { PlayField } from './components'
+
+const players = ['Human', 'Computer'];
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <PlayField playerType={players[1]}>
+      </PlayField>
+      <PlayField playerType={players[0]}>
+      </PlayField>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
+const styles = {
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+    flex: 1
+  }
+};
