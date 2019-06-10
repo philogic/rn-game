@@ -1,16 +1,22 @@
 import React from 'react';
 import { View } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
+
+
 import { PlayField } from './components'
+import { Colors } from './constants';
 
 const players = ['Human', 'Computer'];
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <PlayField playerType={players[1]}>
-      </PlayField>
-      <PlayField playerType={players[0]}>
-      </PlayField>
+        <LinearGradient colors={[Colors.lightGreen, Colors.mediumGreen]}>
+          <PlayField playerType={players[1]}>
+          </PlayField>
+          <PlayField playerType={players[0]}>
+          </PlayField>
+        </LinearGradient>
     </View>
   );
 }
@@ -18,5 +24,11 @@ export default function App() {
 const styles = {
   container: {
     flex: 1
+  },
+  gradientField: {
+    flex: 1,
+    borderWidth: 1,
+    borderColor: Colors.white
+
   }
 };
