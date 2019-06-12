@@ -36,12 +36,12 @@ const styles = {
         height: 70,
         width: 70,
         borderRadius: 35,
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.transparentWhite,
         borderColor: Colors.black,
         borderWidth: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        shadowOffset:  {
+        shadowOffset: {
             width: 0,
             height: 5
         },
@@ -52,3 +52,5 @@ const styles = {
         width: 50
     }
 };
+
+export default ImageButton;
