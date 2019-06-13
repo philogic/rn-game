@@ -10,35 +10,39 @@ import {
 } from './components'
 import { Colors } from './constants';
 
-const players = ['Human', 'Computer'];
 
-const onPressImageButton = () => {
-    console.log("Button pressed!")
-};
 
-export default function App() {
-    return (
-        <View style={styles.container}>
-            <LinearGradient colors={[Colors.lightGreen, Colors.mediumGreen]} style={styles.gradientField}>
-                <PlayField playerType={players[1]}>
-                    <ScoreBoard playerType={players[1]}/>
-                </PlayField>
-                <PlayField playerType={players[0]}>
-                    <ScoreBoard playerType={players[0]}/>
-                    <ImageButtonContainer
-                        buttons={choices}
-                        onPress={onPressImageButton}
-                    />
-                </PlayField>
-                <Player playername={players[1]}/>
-                <MidField/>
-                <Player playername={players[0]}/>
-            </LinearGradient>
-        </View>
-    );
+export default class App extends React.Component() {
+    state = {
+        humanScore: 0,
+        computerScore: 0
+    };
+    render(){
+        return (
+            <View style={styles.container}>
+                <LinearGradient colors={[Colors.lightGreen, Colors.mediumGreen]} style={styles.gradientField}>
+                    <PlayField playerType={players[1]}>
+                        <ScoreBoard playerType={players[1]}/>
+                    </PlayField>
+                    <PlayField playerType={players[0]}>
+                        <ScoreBoard playerType={players[0]}/>
+                        <ImageButtonContainer
+                            buttons={choices}
+                            onPress={onPressImageButton}
+                        />
+                    </PlayField>
+                    <Player playername={players[1]}/>
+                    <MidField/>
+                    <Player playername={players[0]}/>
+                </LinearGradient>
+            </View>
+        );
+    }
+
 }
 
 const choices = ['Rock', 'Paper', 'Scissors'];
+const players = ['Human', 'Computer'];
 
 const styles = {
     container: {
