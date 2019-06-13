@@ -1,13 +1,12 @@
 import React from 'react';
 import { View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-
-
 import {
     PlayField,
     MidField,
     ImageButtonContainer,
-    ScoreBoard
+    ScoreBoard,
+    Player
 } from './components'
 import { Colors } from './constants';
 
@@ -31,7 +30,9 @@ export default function App() {
                         onPress={onPressImageButton}
                     />
                 </PlayField>
+                <Player playername={players[1]}/>
                 <MidField/>
+                <Player playername={players[0]}/>
             </LinearGradient>
         </View>
     );
