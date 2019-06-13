@@ -3,9 +3,13 @@ import { View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
 
-import { PlayField, MidField } from './components'
+import {
+    PlayField,
+    MidField,
+    ImageButtonContainer,
+    ScoreBoard
+} from './components'
 import { Colors } from './constants';
-import ImageButtonContainer from "./components/ImageButtonContainer";
 
 const players = ['Human', 'Computer'];
 
@@ -18,8 +22,10 @@ export default function App() {
         <View style={styles.container}>
             <LinearGradient colors={[Colors.lightGreen, Colors.mediumGreen]} style={styles.gradientField}>
                 <PlayField playerType={players[1]}>
+                    <ScoreBoard playerType={players[1]}/>
                 </PlayField>
                 <PlayField playerType={players[0]}>
+                    <ScoreBoard playerType={players[0]}/>
                     <ImageButtonContainer
                         buttons={choices}
                         onPress={onPressImageButton}
