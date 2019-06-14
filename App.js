@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import {
@@ -12,7 +12,7 @@ import { Colors } from './constants';
 
 
 
-export default class App extends React.Component() {
+export default class App extends Component() {
     state = {
         humanScore: 0,
         computerScore: 0
