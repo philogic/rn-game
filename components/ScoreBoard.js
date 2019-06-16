@@ -16,11 +16,16 @@ const getScoreContainerStyle = playerType => {
 const ScoreBoard = props => {
     return (
         <View style={[styles.scoreContainer, getScoreContainerStyle(props.playerType)]}>
-            <Text style={styles.score}>0</Text>
+            <Text style={styles.score}>{props.score}</Text>
         </View>
     )
-}
+};
 
+
+ScoreBoard.propTypes = {
+    score: PropTypes.number,
+    playerType: PropTypes.string,
+};
 
 
 const styles = {

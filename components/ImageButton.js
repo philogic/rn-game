@@ -20,7 +20,7 @@ const getImageSource = type => {
 
 const ImageButton = props => {
     return (
-        <TouchableOpacity style={styles.imageButton} onPress={props.onPress()}>
+        <TouchableOpacity style={styles.imageButton} onPress={() => props.onPress()}>
             <Image style={styles.image} source={getImageSource(props.type)}/>
         </TouchableOpacity>
     )

@@ -11,14 +11,14 @@ const calcWinner = (humanChoice, computerChoice) => {
     } else if (computerScore > humanScore) {
         return 'Computer';
     } else if (humanScore === computerScore) {
-        return 'Draw';
+        return 'Nobody';
     }
 };
 
 const winTable = [
+    [0, 0, 1],
     [1, 0, 0],
-    [0, 1, 0],
-    [0, 0, 1]
+    [0, 1, 0]
 ];
 
 export default calcWinner;

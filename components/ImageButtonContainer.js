@@ -7,7 +7,7 @@ import ImageButton from './ImageButton';
 
 const ImageButtonContainer = props => {
     const buttons = props.buttons.map((item, index) => {
-        return <ImageButton type={item} key={index} onPress={() => props.onPress()}/>
+        return <ImageButton type={item} key={index} onPress={() => props.onPress(index)}/>
     });
     return <View style={styles.imageButtonContainer}>{buttons}</View>
 };
