@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, Alert } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import * as firebase from 'firebase';
+import { firebaseConfig } from './config';
 import {
     PlayField,
     MidField,
@@ -18,6 +20,10 @@ import {
 
 
 export default class App extends React.Component {
+    componentWillMount() {
+        firebase.initializeApp(firebaseConfig);
+    }
+
     state = {
         humanScore: 0,
         computerScore: 0
