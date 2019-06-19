@@ -25,6 +25,8 @@ export default class App extends React.Component {
     }
 
     state = {
+        game: 1,
+        round: 1,
         humanScore: 0,
         computerScore: 0
     };
@@ -32,7 +34,38 @@ export default class App extends React.Component {
     onPressImageButton(humanChoice) {
         const computerChoice = genComputerChoice();
         const winner = calcWinner(humanChoice, computerChoice);
-        this.showAlert(winner, humanChoice, computerChoice)
+        this.showAlert(winner, humanChoice, computerChoice);
+    }
+
+    increaseGameId(){
+        this.setState({
+            game: this.state.game + 1
+        });
+        console.log(this.state.game);
+    }
+
+    increaseRoundId(){
+        if (this.state.game % 10 === 0){
+            const { round, computerScore, humanScore } = this.state;
+            this.saveDataToFirebase(round, computerScore, humanScore);
+            this.setState({
+                round: round + 1,
+                computerScore: 0,
+                humanScore: 0
+            });
+            Alert.alert('New round begins!')
+        }
+    }
+
+    saveDataToFirebase(round, computerScore, humanScore){
+        firebase
+            .database()
+            .ref('/Rounds')
+            .push({
+                round,
+                humanScore,
+                computerScore
+            })
     }
 
     showAlert(winner, humanChoice, computerChoice) {
@@ -61,9 +94,11 @@ export default class App extends React.Component {
                 break;
             default:
                 break;
-
         }
+        this.increaseGameId();
+        this.increaseRoundId();
     }
+
     render(){
         return (
             <View style={styles.container}>
