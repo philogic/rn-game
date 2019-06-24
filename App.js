@@ -41,7 +41,6 @@ export default class App extends React.Component {
         this.setState({
             game: this.state.game + 1
         });
-        console.log(this.state.game);
     }
 
     increaseRoundId(){
@@ -60,7 +59,7 @@ export default class App extends React.Component {
     saveDataToFirebase(round, computerScore, humanScore){
         firebase
             .database()
-            .ref('/Rounds')
+            .ref('/Games')
             .push({
                 round,
                 humanScore,
